@@ -1,0 +1,43 @@
+'''Challenge: Many people keep time using a 24 hour clock (11 is 11am and 23 is 11pm, 0 is midnight). If it is currently 13 and you set your alarm to go off in 50 hours, it will be 15 (3pm). Write a Python program to solve the general version of the above problem. Ask the user for the time now (in hours), and then ask for the number of hours to wait for the alarm. Your program should output what the time will be on the clock when the alarm goes off.
+'''
+
+#asks user for current numeric time in 24 hr clock and gives an error if user does not input a number
+while True:
+    try:
+        time_now = input("what is the time now (in hours using 24 hr clock)? ")
+        time_now = int(time_now)
+        break
+    except ValueError:
+        try:
+            time_now = float(time_now) 
+            break
+        except ValueError:
+            print ("This is not a number. Please enter a number.")
+
+
+
+#asks user for how many hours to wait until the alarm is meant to ring and gives an error if user does not input a number
+while True:
+    try:
+        wait_time = input("How many hours do you want to wait for the alarm? ")
+        wait_time = int(wait_time)
+        break
+    except ValueError:
+        try:
+            wait_time = float(wait_time) 
+            break
+        except ValueError:
+            print ("This is not a number. Please enter a number.")
+
+
+
+#adds current time to how many hours the user plans to wait for the alarm
+total_time = (time_now) + (wait_time)
+
+
+#gives alarm time in 24 hr format
+alarm_time = (total_time) % 24
+
+
+print (alarm_time)
+
