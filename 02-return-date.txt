@@ -1,6 +1,0 @@
-days_in_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-startDay = int(input("What day are you leaving (in number)?"))
-returnDay = int(input("How many nights are you staying?"))
-
-return = (startDay + returnDay) % len(days_in_week)
-print(days_in_week.index(return))
