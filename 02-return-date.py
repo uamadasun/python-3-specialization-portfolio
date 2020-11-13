@@ -3,7 +3,17 @@
 
 #Create a list of days of the week and ask the user for input selecting what number day of the week they're leaving and how many nights they're staying.
 days_in_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-startDay = int(input("Number the days of the week 0 thru 6 where day 0 is Sunday and day 6 is Saturday. What day are you leaving (in number)?"))
+
+while True:
+    try:
+        startDay = int(input("Number the days of the week 0 thru 6 where day 0 is Sunday and day 6 is Saturday. What day are you leaving (in number)?"))
+        if startDay < 0 or startDay > 6:
+            print ("Please enter a valid number between 0 and 6.")
+        else:
+            break
+    except ValueError:
+        print ("This is not a number, please enter a valid number.")
+        
 returnDay = int(input("How many nights are you staying?"))
 
 #Calculate what number day of the week the user will return on
@@ -12,4 +22,4 @@ returnNum = (startDay + returnDay) % len(days_in_week)
 #Use indexing to figure out the written-out name of the number day the user will return
 returnDay = days_in_week[returnNum]
 
-print("You will return on {}, ".format(returnDay), "day #", returnNum)
+print("You will return on {}, ".format(returnDay), "day #",returnNum)
