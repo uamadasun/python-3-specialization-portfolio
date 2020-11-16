@@ -1,6 +1,6 @@
 
 punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
-# lists of words to use
+#gets the list of positive and negative  words that can be used
 positive_words = []
 with open("positive_words.txt") as pos_f:
     for lin in pos_f:
@@ -14,12 +14,15 @@ with open("negative_words.txt") as pos_f:
         if lin[0] != ';' and lin[0] != '\n':
             negative_words.append(lin.strip())
 
+#takes away punctuation marks from the tweet and leaves just the words
 def strip_punctuation(st):
     for ch in st:
         if ch in punctuation_chars:
             st = st.replace(ch,"")
     return st 
 
+
+#gets the count of how many positive and negative words are in the tweet
 def get_pos(st):
     count = 0
     st = (strip_punctuation(st)).split()
@@ -34,29 +37,31 @@ def get_neg(st):
     index = 0
     while index < len(st):
         if st[index] in negative_words:
-            count = count + 1
-        index = index + 1
+            count += 1
+        index += 1
     return count
 
+
+#opens the file with the tweets and breaks up the text by lines and appends it to a new list
 f = open('project_twitter_data.csv', 'r')
 twitterFile = f.readlines()
-#print(twitterFile)
+
 
 newTwitterFile = []
 for lin in twitterFile:
     lin = lin.strip().split(',')
     newTwitterFile.append(lin)
     
-#print (newTwitterFile)
 
+#creates a new file that will contain the Number of Retweets, Number of replies, Positive Score, Negative Score, and Net score info
 newFile = open('resulting_data.csv', 'w')
 
-#Header below:
+#Header for newFile below:
 newFile.write('Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score')
 newFile.write('\n')
 print(newFile)
 
-#Rows below:
+#Rows below for newFile:
 for item in newTwitterFile[1:]:
     retweets = item[1]
     replies = item[2]
