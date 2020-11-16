@@ -1,3 +1,4 @@
+"""This code takes in a CSV file of twitter data and analyzes it to see how positive or negative a particular tweet is. It creates a CSV file that will contain the "Number of retweets, number of replies, positive score (how many happy words are in the tweet), Negative Score (which is how many angry words are in the tweet), and the Net Score (how positive or negative the text is overall) for each tweet. This file can be uploaded to any spreadsheet program to create a visual graph or anything else the user wants to use it for."""
 
 punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
 #gets the list of positive and negative  words that can be used
