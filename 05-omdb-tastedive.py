@@ -1,4 +1,4 @@
-"""This code uses the OMDB and Tastedive APIs to recommend similar movies to the movie the user inputs and sort them based on their Rotten Tomatoes score."""
+"""This code uses the OMDB and Tastedive APIs to recommend similar movies to the movie the user inputs and sort them based on their Rotten Tomatoes score. The TasteDive API lets you provide a movie (or bands, TV shows, etc.) as a query input, and returns a set of related items. The OMDB API lets you provide a movie title as a query input and get back data about the movie, including scores from various review sites (Rotten Tomatoes, IMDB, etc.)."""
 
 import requests_with_caching
 import json
