@@ -40,4 +40,3 @@ alarm_time = (total_time) % 24
 
 
 print (alarm_time)
-
